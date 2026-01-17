@@ -1,17 +1,17 @@
-# 🤖 Assistant Stratégique IA - ChatbotFinance
+#  Assistant Stratégique IA - ChatbotFinance
 
 Un assistant IA intelligent pour l'analyse de documents PDF utilisant la technologie RAG (Retrieval Augmented Generation) avec une interface intuitive.
 
-## 📋 Vue d'ensemble
+##  Vue d'ensemble
 
 Ce projet combine une interface frontend conviviale (Streamlit) avec un backend robuste (FastAPI) pour créer un assistant IA capable de :
-- 📄 Traiter et indexer des documents PDF
-- 🔍 Rechercher des informations pertinentes dans les documents
-- 💬 Générer des réponses intelligentes basées sur le contenu des documents
-- 📊 Afficher un historique des questions posées
-- 🏷️ Filtrer les résultats par PDF, pages et tags
+-  Traiter et indexer des documents PDF
+-  Rechercher des informations pertinentes dans les documents
+-  Générer des réponses intelligentes basées sur le contenu des documents
+-  Afficher un historique des questions posées
+-  Filtrer les résultats par PDF, pages et tags
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 chatbotFinance/
@@ -33,7 +33,7 @@ chatbotFinance/
 └── requirement.txt       # Dépendances Python
 ```
 
-## 🚀 Installation
+##  Installation
 
 ### Prérequis
 - Python 3.8+
@@ -118,18 +118,14 @@ L'application sera accessible sur `http://localhost:8501`
   - Tags (ex: finance, contrat)
 - Obtenez des réponses avec sources
 
-### 📊 Tableau de Bord
+### Tableau de Bord
 - Visualisez tous les documents stockés
 - Consultez l'historique de vos questions
 - Affichez le nombre de tags par document
 
-## 🔧 Configuration Avancée
+##  Configuration Avancée
 
-### Modifier le modèle IA
-Dans [backend/services/rag.py](backend/services/rag.py#L23), changez le modèle Cohere :
-```python
-model="command-a-03-2025"  # Remplacer par un autre modèle
-```
+
 
 ### Ajuster la taille des chunks
 Dans [backend/services/pdf_processor.py](backend/services/pdf_processor.py#L11), modifiez `chunk_size` :
@@ -152,48 +148,4 @@ def retrieve_context(question, pdf_filter=None, page_filter=None, tag_filter=Non
 - **Cohere** : Modèles d'IA (embeddings et génération)
 - **pdfplumber** : Extraction de texte des PDFs
 
-## 🔐 Sécurité
 
-- ⚠️ **À proscrire en production** : Les identifiants PostgreSQL sont hardcodés
-- Utilisez des variables d'environnement ou un gestionnaire de secrets
-- Restreignez l'origine CORS si nécessaire dans `main.py`
-
-## 🐛 Dépannage
-
-### Erreur de connexion PostgreSQL
-```
-Vérifiez que PostgreSQL fonctionne sur le port 5433
-Vérifiez les identifiants dans le fichier .env
-```
-
-### Erreur de clé API Cohere
-```
-Vérifiez que COHERE_API_KEY est définie dans le fichier .env
-Vérifiez que votre clé API est valide
-```
-
-### Problème d'affichage Streamlit
-```bash
-# Effacez le cache
-streamlit cache clear
-
-# Redémarrez l'application
-```
-
-## 📝 Notes
-
-- Les embeddings sont générés avec le modèle Cohere "small"
-- Les réponses sont limitées à 300 tokens
-- L'historique est stocké pendant 50 dernières questions
-
-## 📧 Support
-
-Pour toute question ou problème, consultez la documentation officielle :
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [ChromaDB Documentation](https://docs.trychroma.com/)
-- [Cohere Documentation](https://docs.cohere.com/)
-
----
-
-**Dernière mise à jour** : Janvier 2026
